@@ -1,0 +1,71 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class Main {
+  public static void main(String[] args) {
+
+    // Criação das variáveis
+    String condicaoWhile = "s";
+    int cadastrarProduto;
+
+    // Util
+    Scanner scanner = new Scanner(System.in);
+    ArrayList<Produto> produtos = new ArrayList<Produto>();
+
+    // Início do sistema
+    System.out.println("Bem-vindo ao sistema de cadastro de produtos!");
+
+    do {
+      System.out.println("Digite quantos produtos deseja cadastrar:  ");
+      cadastrarProduto = scanner.nextInt();
+      scanner.nextLine();
+
+      for (int i = 0; i < cadastrarProduto; i++) {
+
+        Produto produto = new Produto();
+
+        System.out.println("Digite o nome do produto: ");
+        produto.setNome(scanner.nextLine());
+
+        System.out.println("Digite a descrição do produto: ");
+        produto.setDescricao(scanner.nextLine());
+
+        System.out.println("Digite o preço do produto: ");
+        produto.setPreco(scanner.nextDouble());
+
+        System.out.println("Digite a quantidade do produto: ");
+        produto.setQuantidade(scanner.nextInt());
+        scanner.nextLine(); 
+
+        System.out.println("Digite a categoria do produto: ");
+        produto.setCategoria(scanner.nextLine());
+
+        produtos.add(produto);
+
+        System.out.println("----------------------------------------");
+        System.out.println("Você cadastrou o produto: " + produto.toString());
+        System.out.println("----------------------------------------");
+
+        
+      }//fim for
+
+      System.out.println("Deseja cadastrar mais produtos? (s/n)");
+      condicaoWhile = scanner.nextLine();
+
+      System.out.println("----------------------------------------");
+
+    } while (condicaoWhile.equalsIgnoreCase("s"));
+
+  
+    System.out.println("Deseja ver todos os itens cadastrados? (s/n)");
+    condicaoWhile = scanner.nextLine();
+
+    if (condicaoWhile.equalsIgnoreCase("s")) {
+      for (Produto p : produtos) {
+        System.out.println("Produto: " + p.toString());
+      }
+    }
+
+    System.out.println("Sistema finalizado. Obrigado!");
+  }
+}

@@ -1,0 +1,120 @@
+import java.util.Scanner;
+import java.util.Random;
+import java.util.Arrays;
+import java.util.ArrayList;
+
+public class Main {
+
+
+
+  
+  public static void main(String[] args) {
+/*
+  //Inicio do sistema
+
+    //criação das variaveis
+    String name;
+    String sobrenome;
+    String email;
+    String senha;
+    int idade;
+    int contador = 0;
+    String continuar = "s";
+
+    //criação do objeto
+
+    Scanner scanner = new Scanner(System.in);
+do{
+
+
+      System.out.println("quantos usuarios deseja criar? ");
+      contador = scanner.nextInt();
+      scanner.nextLine();
+
+  Usuario[] usuario = new Usuario[contador];
+
+  
+  for(int contadorLoop = 0 ; contadorLoop < contador; contadorLoop++){
+    
+    usuario[contadorLoop] = new Usuario();
+    
+    
+
+  //criação do usuario
+       System.out.println("Digite seu nome: ");
+       name = scanner.nextLine();
+       usuario[contadorLoop].setName(name);
+       System.out.println("Digite seu sobrenome: ");
+       sobrenome = scanner.nextLine();
+       usuario[contadorLoop].setSobrenome(sobrenome);
+       System.out.println("Digite seu email: ");
+       email = scanner.nextLine();  
+       usuario[contadorLoop].setEmail(email);
+       System.out.println("Digite sua senha: ");
+       senha = scanner.nextLine();
+       usuario[contadorLoop].setSenha(senha);
+       System.out.println("Digite sua idade: ");
+       idade = scanner.nextInt();
+       usuario[contadorLoop].setIdade(idade);
+    scanner.nextLine();
+
+  }//FIM do for
+    
+    System.out.println("Deseja continuar? (s/n)");
+    continuar = scanner.nextLine();
+}while(continuar.equals("s"));//fim do while criação de usuario
+
+    for (int contadorLoop = 0; contadorLoop < contador; contadorLoop++) {
+      System.out.println(usuario[contadorLoop].getUsuario());
+    }*/
+
+
+
+
+            Scanner scanner = new Scanner(System.in);
+    ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+            String continuar = "s";
+
+            do {
+                System.out.println("Quantos usuários deseja criar?");
+                int quantidade = scanner.nextInt();
+                scanner.nextLine();
+
+                for (int i = 0; i < quantidade; i++) {
+                    Usuario u = new Usuario();
+
+                    System.out.println("Digite seu nome:");
+                    u.setName(scanner.nextLine());
+
+                    System.out.println("Digite seu sobrenome:");
+                    u.setSobrenome(scanner.nextLine());
+
+                    System.out.println("Digite seu email:");
+                    u.setEmail(scanner.nextLine());
+
+                    System.out.println("Digite sua senha:");
+                    u.setSenha(scanner.nextLine());
+
+                    System.out.println("Digite sua idade:");
+                    u.setIdade(scanner.nextInt());
+                    scanner.nextLine(); // limpar o enter
+
+                    usuarios.add(u); // adiciona o usuário à lista
+                }
+
+                System.out.println("Deseja continuar cadastrando? (s/n)");
+                continuar = scanner.nextLine();
+
+            } while (continuar.equalsIgnoreCase("s"));
+
+            System.out.println("\n--- Usuários cadastrados ---");
+            for (Usuario u : usuarios) {
+                System.out.println(u.getUsuario());
+            }
+
+
+    
+  }// man
+
+ 
+}//fim de classe
